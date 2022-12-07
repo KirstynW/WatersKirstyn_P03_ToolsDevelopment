@@ -1380,7 +1380,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1630267992}
-  - component: {fileID: 1630267991}
+  - component: {fileID: 1630267994}
+  - component: {fileID: 1630267995}
   m_Layer: 0
   m_Name: SurvivalUI
   m_TagString: Untagged
@@ -1388,23 +1389,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1630267991
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1630267990}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 44bdaad9fab071745bc65b467017451b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _healthBarSprite: {fileID: 1096909961}
-  _healthAmount: 10
-  _hungerBarSprite: {fileID: 166470868}
-  _hunger: 10
-  _numOfSecs: 0
 --- !u!4 &1630267992
 Transform:
   m_ObjectHideFlags: 0
@@ -1420,6 +1404,43 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1630267994
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1630267990}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: af80017a4e3c9524083e758a28b889fe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _survivalUI: {fileID: 1630267995}
+  _hungerBar: {fileID: 166470868}
+  _thirstBar: {fileID: 830045061}
+  _healthBar: {fileID: 1096909961}
+--- !u!114 &1630267995
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1630267990}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b551edf09427c1047bbf420803794a54, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _maxHunger: 100
+  _hungerDepletionRate: 1
+  _currentHunger: 0
+  _maxThirst: 100
+  _thirstDepletionRate: 1
+  _currentThirst: 0
+  _maxHealth: 100
+  _healthDepletionRate: 1
+  _currentHealth: 0
 --- !u!1 &1770678325
 GameObject:
   m_ObjectHideFlags: 0
@@ -1700,7 +1721,7 @@ MonoBehaviour:
   _currentHunger: 10
   _hitAudio: {fileID: 0}
   _points: 0
-  _survivalBars: {fileID: 1630267991}
+  _survivalBars: {fileID: 0}
 --- !u!4 &2066359738
 Transform:
   m_ObjectHideFlags: 0
