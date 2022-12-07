@@ -1,12 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
 
 [RequireComponent(typeof(SphereCollider))]
-public class AddHunger : MonoBehaviour
+public class AddHealth : MonoBehaviour
 {
-    [SerializeField] private float _HungerReplenish, _thirstReplenish;
+    [SerializeField] private SurvivalUI _survivalUI;
+    [SerializeField] private float _healthReplenish;
     private void Awake()
     {
         GetComponent<SphereCollider>().isTrigger = true;
@@ -14,17 +14,20 @@ public class AddHunger : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (!other.gameObject.CompareTag("Player"))
+
+        Debug.Log("Attempting to destroy");
+        if (!other.CompareTag("Player"))
         {
             return;
         }
-        var survivalUI = other.gameObject.GetComponent<SurvivalUI>();
-
-        if (survivalUI is null) {
+        
+        if (_survivalUI == null)
+        {
             return;
         }
-
-        survivalUI.ReplenishHungerThirst(_HungerReplenish, _thirstReplenish);
+        
+        _survivalUI.ReplenishHealth(_healthReplenish);
+        
         Destroy(gameObject);
     }
 }

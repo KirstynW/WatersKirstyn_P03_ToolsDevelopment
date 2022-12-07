@@ -66,7 +66,7 @@ public class SurvivalUI : MonoBehaviour
         if (_currentHunger > _maxHunger) {
             _currentHunger = _maxHunger;
         }
-        if (_currentThirst>_maxThirst) {
+        if (_currentThirst> _maxThirst) {
             _currentThirst = _maxThirst;
         }
     }
